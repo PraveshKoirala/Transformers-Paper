@@ -64,7 +64,7 @@ What, in your opinion, is the most striking difference here? Would you say that 
 
 Transformer performs better w.r.t baselines. But, for the state of the art (the-then) ARGONet, RMSE is slightly degraded (0.55 vs 0.59)
 
-![img_1.png](img_1.png)
+![img_1.png](assets/img_1.png)
 
 ## Analysis
 * Do we really need ED for this? This looks like a Decoder only Transformer.
