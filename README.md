@@ -4,7 +4,7 @@ Repo for the Paper presentation on Transformers.
 ## Overview
 **Time Series Forecasting**
 
-![img_2.png](img_2.png)
+![img_2.png](assets/img_2.png)
 
 * A variable that depends on time: stock price / day, number of hamburgers you eat / month,influenza cases / week.
 
@@ -34,11 +34,11 @@ Repo for the Paper presentation on Transformers.
 
 **Architecture**
 
-![](architecture.png)
+![](assets/architecture.png)
 
 Original Transformer (Encoder-Decoder) based architecture (Vaswani et al., 2017) with suitable modifications. [The algorithm can be found here.](Algorithm%20for%20Time%20Series%20Forecasting.pdf)
 
-Compare this with the [original decoder algorithm here](EDoriginal.png).
+Compare this with the [original decoder algorithm here](assets/EDoriginal.png).
 
 **Question1** 
 
@@ -57,7 +57,7 @@ What, in your opinion, is the most striking difference here? Would you say that 
 * Data is Min/Max scaled
 
 ## Results (for one-step-ahead forecasting)
-![img.png](img.png)
+![img.png](assets/img.png)
 
 **Question 2**
 * LSTM's pearson correlation is pretty good but RMSE, not so much. What do you think this implies?
@@ -70,6 +70,7 @@ Transformer performs better w.r.t baselines. But, for the state of the art (the-
 * Do we really need ED for this? This looks like a Decoder only Transformer.
 * The entire point of embeddings is to compress N dimensional one-hot vectors to n<<N dimensional dense vectors. Aren't these already dense? Do we really need embeddings?
 * The final combination layer is linear. Would sigmoid be better?
+* 
 
 ## References
 - Lu, F. S., Hattab, M. W., Clemente, C. L., Biggerstaff, M.,
