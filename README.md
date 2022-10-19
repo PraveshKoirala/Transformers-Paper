@@ -42,7 +42,7 @@ Compare this with the [original decoder algorithm here](assets/EDoriginal.png).
 
 **Question1** 
 
-What, in your opinion, is the most striking difference here? Would you say that the architectural differences are significant?
+What, in your opinion, is the most striking difference here? Would you say that the architectural changes are significant?
 
 ## Experiment
 * Four encoder/decoder layers. Most of the other hyperparameters assumed to be default.
@@ -69,8 +69,7 @@ Transformer performs better w.r.t baselines. But, for the state of the art (the-
 ## Analysis
 * Do we really need ED for this? This looks like a Decoder only Transformer.
 * The entire point of embeddings is to compress N dimensional one-hot vectors to n<<N dimensional dense vectors. Aren't these already dense? Do we really need embeddings?
-* The final combination layer is linear. Would sigmoid be better?
-* 
+* There are some literatures that essentially undermine the effectiveness of Transformers for time series forecasting (see Zeng et al., 2022)
 
 ## References
 - Lu, F. S., Hattab, M. W., Clemente, C. L., Biggerstaff, M.,
@@ -81,12 +80,14 @@ and network approaches. Nature Communications, 10(1):
 L., Gomez, A. N., Kaiser, L. u., and Polosukhin, I. Attention is all you need. In Guyon, I., Luxburg, U. V., Bengio, S., Wallach, H., Fergus, R., Vishwanathan, S., and
 Garnett, R. (eds.), Advances in Neural Information Processing Systems 30, pp. 5998–6008. Curran Associates,
 Inc., 2017.
+- Wen, Q., Zhou, T., Zhang, C., Chen, W., Ma, Z., Yan, J., & Sun, L. (2022). Transformers in time series: A survey. arXiv preprint arXiv:2202.07125.
+- Zeng, A., Chen, M., Zhang, L., & Xu, Q. (2022). Are Transformers Effective for Time Series Forecasting?. arXiv preprint arXiv:2205.13504.
 
 ## Resources
 - [Cdc fluview dashboard.](https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html)
 - [Time Series in Python — Exponential Smoothing and ARIMA processes](https://towardsdatascience.com/time-series-in-python-exponential-smoothing-and-arima-processes-2c67f2a52788)
 - [Pearson's Correlation](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
-
+- [Time Series Transformer implementation](https://github.com/tdjuly/TimeSeriesTransformer)
 
 
 
