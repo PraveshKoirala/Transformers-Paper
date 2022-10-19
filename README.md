@@ -1,13 +1,10 @@
-<script
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript">
-</script>
-
 # Transformers-Paper
 Repo for the Paper presentation on Transformers.
 
 ## Overview
 **Time Series Forecasting**
+
+![img_2.png](img_2.png)
 
 * A variable that depends on time: stock price / day, number of hamburgers you eat / month,influenza cases / week.
 
@@ -43,13 +40,9 @@ Original Transformer (Encoder-Decoder) based architecture (Vaswani et al., 2017)
 
 Compare this with the [original decoder algorithm here](EDoriginal.png).
 
-Some points to consider:
-* Inputs / Outputs are scalars (they also try multi-variate experiment).
-* Surprisingly, most of the architecture remains unchanged (I would've guessed differently).
-
 **Question1** 
 
-What, in your opinion, is the most striking difference here?
+What, in your opinion, is the most striking difference here? Would you say that the architectural differences are significant?
 
 ## Experiment
 * Four encoder/decoder layers. Most of the other hyperparameters assumed to be default.
@@ -60,25 +53,38 @@ What, in your opinion, is the most striking difference here?
 * Minibatch size 64
 * Adam Optimizer.
 * Dropouts for all encoder/decoder layers with d=0.2
-* 
+* Train/Test is 2:1
+* Data is Min/Max scaled
 
 ## Results (for one-step-ahead forecasting)
 ![img.png](img.png)
 
-Transformer performs better w.r.t baselines? But, for the state of the art (the-then) ARGONet, RMSE is slightly degraded (0.55 vs 0.59)
-
-![img_1.png](img_1.png)
-
 **Question 2**
 * LSTM's pearson correlation is pretty good but RMSE, not so much. What do you think this implies?
+
+Transformer performs better w.r.t baselines. But, for the state of the art (the-then) ARGONet, RMSE is slightly degraded (0.55 vs 0.59)
+
+![img_1.png](img_1.png)
 
 ## Analysis
 * Do we really need ED for this? This looks like a Decoder only Transformer.
 * The entire point of embeddings is to compress N dimensional one-hot vectors to n<<N dimensional dense vectors. Aren't these already dense? Do we really need embeddings?
-* 
+* The final combination layer is linear. Would sigmoid be better?
 
+## References
+- Lu, F. S., Hattab, M. W., Clemente, C. L., Biggerstaff, M.,
+and Santillana, M. Improved state-level influenza now casting in the united states leveraging internet-based data
+and network approaches. Nature Communications, 10(1):
+147, 2019. ISSN 2041-1723
+- Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones,
+L., Gomez, A. N., Kaiser, L. u., and Polosukhin, I. Attention is all you need. In Guyon, I., Luxburg, U. V., Bengio, S., Wallach, H., Fergus, R., Vishwanathan, S., and
+Garnett, R. (eds.), Advances in Neural Information Processing Systems 30, pp. 5998–6008. Curran Associates,
+Inc., 2017.
 
-
+## Resources
+- [Cdc fluview dashboard.](https://gis.cdc.gov/grasp/fluview/fluportaldashboard.html)
+- [Time Series in Python — Exponential Smoothing and ARIMA processes](https://towardsdatascience.com/time-series-in-python-exponential-smoothing-and-arima-processes-2c67f2a52788)
+- [Pearson's Correlation](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
 
 
 
